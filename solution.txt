@@ -1,0 +1,71 @@
+# Bug 1 - The page is not scaling correctly on mobile or tablet devices
+
+## Solution:
+making a website responsive we need to tell browser to stop auto-resizing the page by
+setting a mete tag that overide default behaviour of the browser. which have added 
+at the head tag.
+
+# Bug 2 - Logo does not appear in the header
+
+## Solution: 
+Firstly I have to check all likely issues that could make image not to show e.g checking file path
+and typo error. Being Svg file i had to looking into the tag itself and found out it was not
+a valid svg tag, and remove part that is invalid.
+
+# Bug 3 - Heart icon should change color on click
+
+## Solution:
+Have register a event click on heart icon to change
+the color when click. Also toggle the color back to is original color(this is an extra)
+
+# Bug 4 - User should be able to delete cards
+
+## Solution:
+After created the modal UI , and have register a click event on delete icon to show
+the modal UI. Have also register a click event on delete button and cancel button respectively
+delete button to delete the card and cancel to do hide modal from view without deleting 
+card.
+
+
+# Bug 5 - Display cards in a grid
+
+## Solution:
+To model grid layout thier lots of ways to do it , but have use flex box approach 
+because is design for that and complex layout.
+
+# Bug 6 The side navigation shouldn't be displayed for screens under 480px
+
+## Solution:
+In other to achieve this behaviour media query need to be set for that viewport size.
+
+
+# Bug 7 - Links in the side navigation do not work
+
+## Solution:
+Is to change href to point to an existing page rather than using # in href
+
+# Bug 8 - Website is broken on IE11
+
+## Solution:
+object-fit propperty does not play well on internet explorer. Alternatively 
+if an image is taking full width of is container is recommended using background-image 
+property allows the object to be repositioned like object-fit does. some polyfill can also
+be use with object-fit , but that add to application file size.
+
+# Blocks Creation:
+Have created Register to newsletter, need more clearification on the 2 block.
+
+# Approach
+Read the issues and start investigating likely causes. Also where I see need 
+for improvement I added it such as heat and delete icon to clumsy, I gave them some 
+space to breath. 
+
+
+# Observation and Recommendation
+1. I observe that thier are couple of resources on this project that should be removed
+beacause is not needed to handle simple interaction with the DOM and page layout. such as JQuery , bootstrap
+and other which I did not see the need for it. 
+
+I will recommend they should be remove to reduce the size of the app for optimisation.
+
+
