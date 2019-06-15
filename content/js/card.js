@@ -4,34 +4,32 @@ let cancelBtn = document.querySelector('.cancel-btn');
 let deleteBtn = document.querySelector('.delete-btn');
 let productToDelete = null;
 
-// Handle heart icon click
-const handleCardControllers = (e) => {
-    if(e.target.tagName.toLowerCase() === 'path' && e.target.style.fill !== 'red'){
-             e.target.style.fill = 'red';
+const handleClickOnProductCard = (e) => {
+    switch(e.target.tagName.toLowerCase()){
+        case  'path': //Handle heart icon click
+        if(e.target.style.fill !== 'red'){
+            e.target.style.fill = 'red';
         }else{
-         e.target.style.fill = 'black'
-        }  
-}
-cardContainer.addEventListener('click' , handleCardControllers);
+             e.target.style.fill = 'black'
+            }  
+        break;
 
-//Handle delete icon click
-const handleProductDelete = (e) => {
-   if(e.target.tagName.toLowerCase() === 'span'){
-    productToDelete = e.target.parentNode.parentNode.parentNode.parentNode;
-    modal.style.display = 'block';
-   }
-}
-cardContainer.addEventListener('click' , handleProductDelete);
+        case 'span': //Handle delete icon click
+                productToDelete = e.target.parentNode.parentNode.parentNode.parentNode;
+                modal.style.display = 'block';
+        break;
 
-//Handle delete and cancel button click
-const handleDeleteBtn = (e) => {
-    if(e.target.tagName.toLowerCase() === 'button' && e.target.className === 'delete-btn'){
-        modal.style.display = 'none';
-    cardContainer.removeChild(productToDelete);
-    }else{
-        modal.style.display = 'none';
+        case 'button': //Handle delete and cancel button click
+                if(e.target.className === 'delete-btn'){
+                    modal.style.display = 'none';
+                cardContainer.removeChild(productToDelete);
+                }else{
+                    modal.style.display = 'none';
+                }
+        default: 
+        break;
     }
-    
 }
-deleteBtn.addEventListener('click' , handleDeleteBtn);
-cancelBtn.addEventListener('click' , handleDeleteBtn);
+cardContainer.addEventListener('click' , handleClickOnProductCard);
+deleteBtn.addEventListener('click' , handleClickOnProductCard);
+cancelBtn.addEventListener('click' , handleClickOnProductCard);
