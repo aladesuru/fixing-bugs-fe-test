@@ -1328,7 +1328,7 @@ padding: 10px;
 
 .model-content{
   background: #fff;
-  width: 90%;
+  width: 98%;
   padding: 20px 0;
   margin: 10px auto;
   border-radius: 10px;
@@ -1357,8 +1357,22 @@ padding: 10px;
 }
 .model-content p:first-child span,
 .model-content p:last-child{
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .model-content p:last-child{
   text-align: right;
+}
+
+/* register-form media query
+/************************************************/
+@media all and (min-width: 769px){
+  .model-content{
+    width: 80%;
+  }
+}
+
+@media all and (min-width: 769px){
+  .model-content{
+    width: 50%;
+  }
 }
